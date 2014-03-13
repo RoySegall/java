@@ -25,7 +25,7 @@ public class Line {
     y2 = scan.nextInt();
 
     // Calculate the distance between the points and display this the user.
-    d = Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2);
-    System.out.println("The distance is " + d);
+    d = Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+    System.out.println("The length of the line between the points (" + x1 + "," + x2 + ") and (" + y1 + "," + y2 + ") is " + d + ".");
   }
 }
