@@ -6,13 +6,16 @@ public class Time1 {
    * Constructing the class with time defined by you.
    *
    * @param h
-   *  Represent the hour of the time.
+   *  Holds the hour of the time.
    * @param m
-   *  Represent the minute of the time.
+   *  Holds the minute of the time.
    * @param s
-   *  Represent the seconds of the time.
+   *  Holds the seconds of the time.
    */
   public Time1(int h, int m, int s) {
+    this.setHour(h);
+    this.setMinute(m);
+    this.setSecond(s);
   }
 
   /**
@@ -22,13 +25,16 @@ public class Time1 {
    *  An object from the instance of Time1.
    */
   public Time1(Time1 other) {
+    this.setHour(other.getHour());
+    this.setMinute(other.getMinute());
+    this.setSecond(other.getSeconds());
   }
 
   /**
    * Return the hour of the time.
    */
   public int getHour() {
-    return _hour;
+    return this._hour;
   }
 
   /**
@@ -49,7 +55,7 @@ public class Time1 {
    * Set the hour of the time.
    *
    * @param num
-   *  Integer which represent the hour. Allowed value is between 0 to 23.
+   *  Integer which holds the hour. Allowed value is between 0 to 23.
    */
   public void setHour(int num) {
     if (num >= 0 && num <= 23) {
@@ -61,11 +67,11 @@ public class Time1 {
    * Set the minute of the time.
    *
    * @param num
-   *  Integer which represent the minute. Allowed value is between 0 to 59.
+   *  Integer which holds the minute. Allowed value is between 0 to 59.
    */
   public void setMinute(int num) {
     if (num >= 0 && num <= 59) {
-      this._hour = num;
+      this._minute = num;
     }
   }
 
@@ -73,7 +79,7 @@ public class Time1 {
    * Set the seconds of the time.
    *
    * @param num
-   *  Integer which represent the seconds. Allowed value is between 0 to 59.
+   *  Integer which holds the seconds. Allowed value is between 0 to 59.
    */
   public void setSecond(int num) {
     if (num >= 0 && num <= 59) {
@@ -85,7 +91,7 @@ public class Time1 {
    * Get the time object in a string format.
    */
   public String toString() {
-    return "";
+    return this._hour + ":" + this._minute + ":" + this._second;
   }
 
   /**
@@ -95,7 +101,7 @@ public class Time1 {
    *  An object from the instance of Time1.
    */
   public boolean equals(Time1 other) {
-    return true;
+    return other.getHour() == this._hour && other.getMinute() == this._minute && other.getSeconds() == this._second;
   }
 
   /**
@@ -105,7 +111,10 @@ public class Time1 {
    *  An object from the instance of Time1.
    */
   public boolean before(Time1 other) {
-    return true;
+    int other_timestamp = (other.getHour() * 3600) + (other.getMinute() * 60) + (other.getSeconds() * 60);
+    int time1_timestamp = (this._hour * 3600) + (this._minute * 60) + (this._second * 60);
+
+    return time1_timestamp < other_timestamp;
   }
 
   /**
@@ -115,7 +124,10 @@ public class Time1 {
    *  An object from the instance of Time1.
    */
   public boolean after(Time1 other) {
-    return true;
+    int other_timestamp = (other.getHour() * 3600) + (other.getMinute() * 60) + (other.getSeconds() * 60);
+    int time1_timestamp = (this._hour * 3600) + (this._minute * 60) + (this._second * 60);
+
+    return time1_timestamp > other_timestamp;
   }
 
   /**
@@ -126,6 +138,14 @@ public class Time1 {
    *  An object from the instance of Time1.
    */
   public int difference(Time1 other) {
-    return 0;
+    int other_timestamp = (other.getHour() * 3600) + (other.getMinute() * 60) + (other.getSeconds() * 60);
+    int time1_timestamp = (this._hour * 3600) + (this._minute * 60) + (this._second * 60);
+
+    if (other_timestamp > time1_timestamp) {
+      return other_timestamp - time1_timestamp;
+    }
+    else {
+      return time1_timestamp - other_timestamp;
+    }
   }
 }
