@@ -30,6 +30,9 @@ public class BusArrival {
    *  The seconds the bus should arrive to the station.
    */
   public BusArrival(int lineNumber, int pass, int h, int m, int s) {
+    this.setLineNumber(lineNumber);
+    this.setNoOsPassengers(pass);
+    this._arrivalTime = new Time1(h, m, s);
   }
 
   /**
@@ -43,12 +46,18 @@ public class BusArrival {
    *  An object of the Time1 instance.
    */
   public BusArrival(int lineNumber, int pass, Time1 t) {
+    this.setLineNumber(lineNumber);
+    this.setNoOsPassengers(pass);
+    this.setArrivalTime(t);
   }
 
   /**
    * Constricting the object with BusArrival object.
    */
   public BusArrival(BusArrival other) {
+    this.setLineNumber(other.getLineNumber());
+    this.setNoOsPassengers(other.getNoOsPassengers());
+    this._arrivalTime = new Time1(other.getArrivalTime());
   }
 
   /**
@@ -64,6 +73,7 @@ public class BusArrival {
    *  Time1 object.
    */
   public void setArrivalTime(Time1 t) {
+    this._arrivalTime = new Time1(t);
   }
 
   /**
@@ -80,6 +90,7 @@ public class BusArrival {
    *  The line number.
    */
   public void setLineNumber(int num) {
+    this._lineNumber = num;
   }
 
   /**
@@ -96,6 +107,7 @@ public class BusArrival {
    *  Number of passengers.
    */
   public void setNoOsPassengers(int num) {
+    this._noOsPassengers = num;
   }
 
   /**
@@ -110,7 +122,7 @@ public class BusArrival {
    * Present to the user the current instance in a string presentation.
    */
   public String toString() {
-    return "";
+    return "Bus no. " + this._lineNumber + " arrived at " + this._arrivalTime.toString() + " with " + this._noOsPassengers;
   }
 
   /**
