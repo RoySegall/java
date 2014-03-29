@@ -13,7 +13,9 @@ public class BusArrival {
   /**
    * Holds the number of passengers in the bus.
    */
-  private int _noOsPassengers;
+  private int _noOfPassengers;
+
+  final int MAX_PASSENGERS_NUMBER = 70;
 
   /**
    * Constricting the object with known hours of arrival.
@@ -31,7 +33,7 @@ public class BusArrival {
    */
   public BusArrival(int lineNumber, int pass, int h, int m, int s) {
     this.setLineNumber(lineNumber);
-    this.setNoOsPassengers(pass);
+    this.setnoOfPassengers(pass);
     this._arrivalTime = new Time1(h, m, s);
   }
 
@@ -47,7 +49,7 @@ public class BusArrival {
    */
   public BusArrival(int lineNumber, int pass, Time1 t) {
     this.setLineNumber(lineNumber);
-    this.setNoOsPassengers(pass);
+    this.setnoOfPassengers(pass);
     this.setArrivalTime(t);
   }
 
@@ -56,7 +58,7 @@ public class BusArrival {
    */
   public BusArrival(BusArrival other) {
     this.setLineNumber(other.getLineNumber());
-    this.setNoOsPassengers(other.getNoOsPassengers());
+    this.setnoOfPassengers(other.getnoOfPassengers());
     this._arrivalTime = new Time1(other.getArrivalTime());
   }
 
@@ -90,14 +92,19 @@ public class BusArrival {
    *  The line number.
    */
   public void setLineNumber(int num) {
+    if (num < 1 || num > 99) {
+      System.out.println("The line number can be only between 1 to 99.");
+      return;
+    }
+
     this._lineNumber = num;
   }
 
   /**
    * Get the number of passengers.
    */
-  public int getNoOsPassengers() {
-    return this._noOsPassengers;
+  public int getnoOfPassengers() {
+    return this._noOfPassengers;
   }
 
   /**
@@ -106,8 +113,13 @@ public class BusArrival {
    * @param num
    *  Number of passengers.
    */
-  public void setNoOsPassengers(int num) {
-    this._noOsPassengers = num;
+  public void setnoOfPassengers(int num) {
+    if (num < 0 || num > MAX_PASSENGERS_NUMBER) {
+      System.out.println("The number of passengers can be between 0 to " + MAX_PASSENGERS_NUMBER + ".");
+      return;
+    }
+
+    this._noOfPassengers = num;
   }
 
   /**
@@ -115,35 +127,35 @@ public class BusArrival {
    * BusArrival are equals.
    */
   public boolean equals(BusArrival other) {
-    return false;
+    return this._lineNumber == other.getLineNumber() && this._arrivalTime.equals(other.getArrivalTime()) && this._noOfPassengers == other.getnoOfPassengers();
   }
 
   /**
    * Present to the user the current instance in a string presentation.
    */
   public String toString() {
-    return "Bus no. " + this._lineNumber + " arrived at " + this._arrivalTime.toString() + " with " + this._noOsPassengers;
+    return "Bus no. " + this._lineNumber + " arrived at " + this._arrivalTime.toString() + " with " + this._noOfPassengers;
   }
 
   /**
    * Determine if the current bus is fuller then the given bus object.
    */
   public boolean fuller(BusArrival other) {
-    return true;
+    return this._noOfPassengers > other.getnoOfPassengers();
   }
 
   /**
    * Determine if the current bus arrived before the given time object.
    */
   public boolean before(BusArrival other) {
-    return true;
+    return other._arrivalTime.before(other.getArrivalTime());
   }
 
   /**
    * Determine if the bus is full.
    */
   public boolean isFull() {
-    return true;
+    return this._noOfPassengers > MAX_PASSENGERS_NUMBER;
   }
 
   /**
