@@ -15,6 +15,9 @@ public class BusArrival {
    */
   private int _noOfPassengers;
 
+  /**
+   * Holds the maximum number of passengers in a single bus.
+   */
   final int MAX_PASSENGERS_NUMBER = 70;
 
   /**
@@ -163,6 +166,8 @@ public class BusArrival {
    * buses to the station.
    */
   public int elapssedTime(BusArrival other) {
-    return 2;
+    int seconds = this._arrivalTime.difference(other.getArrivalTime());
+
+    return seconds / 60;
   }
 }
