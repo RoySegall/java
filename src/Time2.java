@@ -42,21 +42,21 @@ public class Time2 {
    * Return the hour of the time.
    */
   public int getHour() {
-    return 0;
+    return (int) this._secFromMid / 3600;
   }
 
   /**
    * Return the minute of the time.
    */
   public int getMinute() {
-    return 0;
+    return (int) (this._secFromMid - (this.getHour() * 60 * 60) / 60);
   }
 
   /**
    * Return the seconds of the time.
    */
   public int getSecond() {
-    return 0;
+    return (int) (this._secFromMid - (this.getHour() * 60 * 60) + (this.getMinute() * 60));
   }
 
   /**
@@ -90,8 +90,7 @@ public class Time2 {
    * Get the time object in a string format.
    */
   public String toString() {
-    // todo: make it.
-    return "";
+    return this.getHour() + ":" + this.getMinute() + ":" + this.getSecond();
   }
 
   /**
