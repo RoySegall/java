@@ -25,7 +25,7 @@ public class Time2 {
       s = 0;
     }
 
-    this._secFromMid = (h * 60 * 60) + (m * 60) + s;
+    this._secFromMid = (h * 3600) + (m * 60) + s;
   }
 
   /**
@@ -35,7 +35,7 @@ public class Time2 {
    *  An object from the instance of Time2.
    */
   public Time2(Time2 other) {
-    this._secFromMid = (other.getHour() * 60 * 60) + (other.getMinute() * 60) + other.getSecond();
+    this._secFromMid = (other.getHour() * 3600) + (other.getMinute() * 60) + other.getSecond();
   }
 
   /**
@@ -49,14 +49,14 @@ public class Time2 {
    * Return the minute of the time.
    */
   public int getMinute() {
-    return (int) (this._secFromMid - (this.getHour() * 60 * 60) / 60);
+    return (int) (this._secFromMid - (this.getHour() * 3600) / 60);
   }
 
   /**
    * Return the seconds of the time.
    */
   public int getSecond() {
-    return (int) (this._secFromMid - (this.getHour() * 60 * 60) + (this.getMinute() * 60));
+    return (int) (this._secFromMid - (this.getHour() * 3600) + (this.getMinute() * 60));
   }
 
   /**
@@ -67,7 +67,7 @@ public class Time2 {
    */
   public void setHour(int num) {
     if (num >= 0 && num <= 23) {
-      this._secFromMid = (num * 60 * 60) + (this.getMinute() * 60) + this.getSecond();
+      this._secFromMid = (num * 3600) + (this.getMinute() * 60) + this.getSecond();
     }
   }
 
@@ -79,7 +79,7 @@ public class Time2 {
    */
   public void setMinute(int num) {
     if (num >= 0 && num <= 59) {
-      this._secFromMid = (this.getHour() * 60 * 60) + (num * 60) + this.getSecond();
+      this._secFromMid = (this.getHour() * 3600) + (num * 60) + this.getSecond();
     }
   }
 
@@ -91,7 +91,7 @@ public class Time2 {
    */
   public void setSecond(int num) {
     if (num >= 0 && num <= 59) {
-      this._secFromMid = (this.getHour() * 60 * 60) + (this.getHour() * 60) + num;
+      this._secFromMid = (this.getHour() * 3600) + (this.getHour() * 60) + num;
     }
   }
 
@@ -149,11 +149,6 @@ public class Time2 {
     int other_timestamp = (other.getHour() * 3600) + (other.getMinute() * 60) + (other.getSecond() * 60);
     int Time2_timestamp = (this.getHour() * 3600) + (this.getMinute() * 60) + (this.getSecond() * 60);
 
-    if (other_timestamp > Time2_timestamp) {
-      return other_timestamp - Time2_timestamp;
-    }
-    else {
-      return Time2_timestamp - other_timestamp;
-    }
+    return Time2_timestamp - other_timestamp;
   }
 }
