@@ -27,7 +27,7 @@ public class Time1 {
   public Time1(Time1 other) {
     this.setHour(other.getHour());
     this.setMinute(other.getMinute());
-    this.setSecond(other.getSeconds());
+    this.setSecond(other.getSecond());
   }
 
   /**
@@ -47,7 +47,7 @@ public class Time1 {
   /**
    * Return the seconds of the time.
    */
-  public int getSeconds() {
+  public int getSecond() {
     return this._second;
   }
 
@@ -101,7 +101,7 @@ public class Time1 {
    *  An object from the instance of Time1.
    */
   public boolean equals(Time1 other) {
-    return other.getHour() == this._hour && other.getMinute() == this._minute && other.getSeconds() == this._second;
+    return other.getHour() == this._hour && other.getMinute() == this._minute && other.getSecond() == this._second;
   }
 
   /**
@@ -111,7 +111,7 @@ public class Time1 {
    *  An object from the instance of Time1.
    */
   public boolean before(Time1 other) {
-    int other_timestamp = (other.getHour() * 3600) + (other.getMinute() * 60) + (other.getSeconds() * 60);
+    int other_timestamp = (other.getHour() * 3600) + (other.getMinute() * 60) + (other.getSecond() * 60);
     int time1_timestamp = (this._hour * 3600) + (this._minute * 60) + (this._second * 60);
 
     return time1_timestamp < other_timestamp;
@@ -124,7 +124,7 @@ public class Time1 {
    *  An object from the instance of Time1.
    */
   public boolean after(Time1 other) {
-    int other_timestamp = (other.getHour() * 3600) + (other.getMinute() * 60) + (other.getSeconds() * 60);
+    int other_timestamp = (other.getHour() * 3600) + (other.getMinute() * 60) + (other.getSecond() * 60);
     int time1_timestamp = (this._hour * 3600) + (this._minute * 60) + (this._second * 60);
 
     return time1_timestamp > other_timestamp;
@@ -138,7 +138,7 @@ public class Time1 {
    *  An object from the instance of Time1.
    */
   public int difference(Time1 other) {
-    int other_timestamp = (other.getHour() * 3600) + (other.getMinute() * 60) + (other.getSeconds() * 60);
+    int other_timestamp = (other.getHour() * 3600) + (other.getMinute() * 60) + (other.getSecond() * 60);
     int time1_timestamp = (this._hour * 3600) + (this._minute * 60) + (this._second * 60);
 
     if (other_timestamp > time1_timestamp) {
