@@ -35,7 +35,7 @@ public class Time2 {
    *  An object from the instance of Time2.
    */
   public Time2(Time2 other) {
-    this._secFromMid = (other.getHour() * 60 * 60) + (other.getMinute() * 60) + this.getSecond();
+    this._secFromMid = (other.getHour() * 60 * 60) + (other.getMinute() * 60) + other.getSecond();
   }
 
   /**
@@ -66,6 +66,9 @@ public class Time2 {
    *  Integer which holds the hour. Allowed value is between 0 to 23.
    */
   public void setHour(int num) {
+    if (num >= 0 && num <= 23) {
+      this._secFromMid = (num * 60 * 60) + (this.getMinute() * 60) + this.getSecond();
+    }
   }
 
   /**
@@ -75,6 +78,9 @@ public class Time2 {
    *  Integer which holds the minute. Allowed value is between 0 to 59.
    */
   public void setMinute(int num) {
+    if (num >= 0 && num <= 59) {
+      this._secFromMid = (this.getHour() * 60 * 60) + (num * 60) + this.getSecond();
+    }
   }
 
   /**
@@ -84,6 +90,9 @@ public class Time2 {
    *  Integer which holds the seconds. Allowed value is between 0 to 59.
    */
   public void setSecond(int num) {
+    if (num >= 0 && num <= 59) {
+      this._secFromMid = (this.getHour() * 60 * 60) + (this.getHour() * 60) + num;
+    }
   }
 
   /**
