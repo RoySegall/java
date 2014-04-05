@@ -1,6 +1,6 @@
 public class Time2 {
 
-  private int _hour, _minute, _second;
+  private long _secFromMid;
 
   /**
    * Constructing the class with time defined by you.
@@ -34,21 +34,21 @@ public class Time2 {
    * Return the hour of the time.
    */
   public int getHour() {
-    return this._hour;
+    return 0;
   }
 
   /**
    * Return the minute of the time.
    */
   public int getMinute() {
-    return this._minute;
+    return 0;
   }
 
   /**
    * Return the seconds of the time.
    */
   public int getSeconds() {
-    return this._second;
+    return 0;
   }
 
   /**
@@ -58,9 +58,6 @@ public class Time2 {
    *  Integer which holds the hour. Allowed value is between 0 to 23.
    */
   public void setHour(int num) {
-    if (num >= 0 && num <= 23) {
-      this._hour = num;
-    }
   }
 
   /**
@@ -70,9 +67,6 @@ public class Time2 {
    *  Integer which holds the minute. Allowed value is between 0 to 59.
    */
   public void setMinute(int num) {
-    if (num >= 0 && num <= 59) {
-      this._minute = num;
-    }
   }
 
   /**
@@ -82,9 +76,6 @@ public class Time2 {
    *  Integer which holds the seconds. Allowed value is between 0 to 59.
    */
   public void setSecond(int num) {
-    if (num >= 0 && num <= 59) {
-      this._second = num;
-    }
   }
 
   /**
