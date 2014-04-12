@@ -91,7 +91,7 @@ public class Time2 {
    */
   public void setSecond(int num) {
     if (num >= 0 && num <= 59) {
-      this._secFromMid = (this.getHour() * 3600) + (this.getHour() * 60) + num;
+      this._secFromMid = (this.getHour() * 3600) + (this.getMinute() * 60) + num;
     }
   }
 
@@ -99,7 +99,30 @@ public class Time2 {
    * Get the time object in a string format.
    */
   public String toString() {
-    return this.getHour() + ":" + this.getMinute() + ":" + this.getSecond();
+    String output;
+
+    if (this.getHour() < 10) {
+      output = "0" + this.getHour() + ":";
+    }
+    else {
+      output = "" + this.getHour() + ":";
+    }
+
+    if (this.getMinute() < 10) {
+      output += 0 + "" + this.getMinute() + ":";
+    }
+    else {
+      output += "" + this.getMinute() + ":";
+    }
+
+    if (this.getSecond() < 10) {
+      output += 0 + "" + this.getSecond();
+    }
+    else {
+      output += "" + this.getSecond();
+    }
+
+    return output;
   }
 
   /**

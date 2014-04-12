@@ -137,7 +137,7 @@ public class BusArrival {
    * Present to the user the current instance in a string presentation.
    */
   public String toString() {
-    return "Bus no. " + this._lineNumber + " arrived at " + this._arrivalTime.toString() + " with " + this._noOfPassengers;
+    return "Bus no. " + this._lineNumber + " arrived at " + this._arrivalTime.toString() + " with " + this._noOfPassengers + " passengers";
   }
 
   /**
