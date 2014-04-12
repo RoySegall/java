@@ -40,6 +40,9 @@ public class Time2 {
 
   /**
    * Return the hour of the time.
+   *
+   * @return int
+   *  The seconds of the current instance.
    */
   public int getHour() {
     return (int) this._secFromMid / 3600;
@@ -47,6 +50,9 @@ public class Time2 {
 
   /**
    * Return the minute of the time.
+   *
+   * @return int
+   *  The minutes of the current instance.
    */
   public int getMinute() {
     return (int) ((this._secFromMid - (this.getHour() * 3600)) / 60);
@@ -54,6 +60,9 @@ public class Time2 {
 
   /**
    * Return the seconds of the time.
+   *
+   * @return int
+   *  The hours of the current instance.
    */
   public int getSecond() {
     return (int) (this._secFromMid - ((this.getHour() * 3600) + (this.getMinute() * 60)));
@@ -97,6 +106,9 @@ public class Time2 {
 
   /**
    * Get the time object in a string format.
+   *
+   * @return String
+   *  Return the string present the current object.
    */
   public String toString() {
     String output;
@@ -130,6 +142,10 @@ public class Time2 {
    *
    * @param other
    *  An object from the instance of Time2.
+   *
+   * @return bool
+   *  Return true/false if the provided time and the time in the current
+   *  instance are equals.
    */
   public boolean equals(Time2 other) {
     return other.getHour() == this.getHour() && other.getMinute() == this.getMinute() && other.getSecond() == this.getSecond();
@@ -140,6 +156,10 @@ public class Time2 {
    *
    * @param other
    *  An object from the instance of Time2.
+   *
+   * @return boolean
+   *  Return true/false if the time in the current instance occur before the
+   *  given time.
    */
   public boolean before(Time2 other) {
     int other_timestamp = (other.getHour() * 3600) + (other.getMinute() * 60) + (other.getSecond());
@@ -153,6 +173,10 @@ public class Time2 {
    *
    * @param other
    *  An object from the instance of Time2.
+   *
+   * @return boolean
+   *  Return true/false if the time in the current instance occur after the
+   *  given time.
    */
   public boolean after(Time2 other) {
     int other_timestamp = (other.getHour() * 3600) + (other.getMinute() * 60) + (other.getSecond());
@@ -167,6 +191,10 @@ public class Time2 {
    *
    * @param other
    *  An object from the instance of Time2.
+   *
+   * @return int
+   *  Return the difference in seconds between the given time and the time in
+   *  the instance.
    */
   public int difference(Time2 other) {
     int other_timestamp = (other.getHour() * 3600) + (other.getMinute() * 60) + (other.getSecond());

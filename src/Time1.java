@@ -32,6 +32,9 @@ public class Time1 {
 
   /**
    * Return the hour of the time.
+   *
+   * @return int
+   *  The hour of the current instance.
    */
   public int getHour() {
     return this._hour;
@@ -39,6 +42,9 @@ public class Time1 {
 
   /**
    * Return the minute of the time.
+   *
+   * @return int
+   *  The minute of the current instance.
    */
   public int getMinute() {
     return this._minute;
@@ -46,6 +52,9 @@ public class Time1 {
 
   /**
    * Return the seconds of the time.
+   *
+   * @return int
+   *  The second of the current instance.
    */
   public int getSecond() {
     return this._second;
@@ -89,6 +98,9 @@ public class Time1 {
 
   /**
    * Get the time object in a string format.
+   *
+   * @return String
+   *  Return the string present the current object.
    */
   public String toString() {
     String output;
@@ -122,6 +134,9 @@ public class Time1 {
    *
    * @param other
    *  An object from the instance of Time1.
+   *
+   * @return boolean
+   *  Return true/false if the properties are equal to the given object.
    */
   public boolean equals(Time1 other) {
     return other._hour == this._hour && other._minute == this._minute && other._second == this._second;
@@ -132,6 +147,9 @@ public class Time1 {
    *
    * @param other
    *  An object from the instance of Time1.
+   *
+   * @return bool
+   *  Return true/false if the current instance occur before the given time.
    */
   public boolean before(Time1 other) {
     return ((this._hour * 3600) + (this._minute * 60) + this._second) < (other._hour * 3600) + ((other._minute * 60) + other._second);
@@ -142,6 +160,10 @@ public class Time1 {
    *
    * @param other
    *  An object from the instance of Time1.
+   *
+   * @return bool
+   *  Return true/false if the time in the current instance occur after the
+   *  given time.
    */
   public boolean after(Time1 other) {
     return ((this._hour * 3600) + (this._minute * 60) + this._second) > ((other._hour * 3600) + (other._minute * 60) + other._second);
@@ -153,6 +175,10 @@ public class Time1 {
    *
    * @param other
    *  An object from the instance of Time1.
+   *
+   * @return int
+   *  return the difference in seconds between the given time and the time in
+   *  the instance.
    */
   public int difference(Time1 other) {
     return ((this._hour * 3600) + (this._minute * 60) + this._second) - ((other._hour * 3600) + (other._minute * 60) + other._second);

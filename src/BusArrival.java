@@ -67,6 +67,10 @@ public class BusArrival {
 
   /**
    * Get the arrival time.
+   *
+   * @return Time1
+   *  Return an object from the instance of Time1 which will represent the
+   *  arrival time.
    */
   public Time1 getArrivalTime() {
     return this._arrivalTime;
@@ -74,6 +78,7 @@ public class BusArrival {
 
   /**
    * Set the arrival time.
+   *
    * @param t
    *  Time1 object.
    */
@@ -83,6 +88,9 @@ public class BusArrival {
 
   /**
    * Get the line number.
+   *
+   * @return int
+   *  Return the line number.
    */
   public int getLineNum() {
     return this._lineNumber;
@@ -105,6 +113,9 @@ public class BusArrival {
 
   /**
    * Get the number of passengers.
+   *
+   * @return int
+   *  Get the number of passengers.
    */
   public int getNoOfPass() {
     return this._noOfPassengers;
@@ -128,6 +139,9 @@ public class BusArrival {
   /**
    * Determine of the given BusArrival object and the current instance of
    * BusArrival are equals.
+   *
+   * @return boolean
+   *  Return true/false if the properties are equal to the given object.
    */
   public boolean equals(BusArrival other) {
     return this._lineNumber == other.getLineNum() && this._arrivalTime.equals(other.getArrivalTime()) && this._noOfPassengers == other.getNoOfPass();
@@ -135,6 +149,9 @@ public class BusArrival {
 
   /**
    * Present to the user the current instance in a string presentation.
+   *
+   * @return String
+   *  Return a string which provide info about the object.
    */
   public String toString() {
     return "Bus no. " + this._lineNumber + " arrived at " + this._arrivalTime.toString() + " with " + this._noOfPassengers + " passengers";
@@ -142,13 +159,22 @@ public class BusArrival {
 
   /**
    * Determine if the current bus is fuller then the given bus object.
+   *
+   * @return boolean
+   *  Return true/false if the current bus is fuller then the given bus object.
    */
   public boolean fuller(BusArrival other) {
     return this._noOfPassengers > other.getNoOfPass();
   }
 
   /**
-   * Determine if the current bus arrived before the given time object.
+   * Determine if the current bus arrived before the given bus object.
+   *
+   * @param other
+   *  A BusArrival instance which represent the other second arriving bus.
+   *
+   * @return boolean
+   *  Return true/false if the current bus arrived before the given bus.
    */
   public boolean before(BusArrival other) {
     return other._arrivalTime.before(other.getArrivalTime());
@@ -156,6 +182,9 @@ public class BusArrival {
 
   /**
    * Determine if the bus is full.
+   *
+   * @return bool
+   *  Return true/false if the bus if full.
    */
   public boolean isFull() {
     return this._noOfPassengers > MAX_PASSENGERS_NUMBER;
@@ -164,6 +193,10 @@ public class BusArrival {
   /**
    * Return the number of full minutes difference between the arrival of the
    * buses to the station.
+   *
+   * @return bool
+   *  Return the minutes difference between the arrival of the buses to the
+   *  station.
    */
   public int elapsedTime(BusArrival other) {
     int seconds = this._arrivalTime.difference(other.getArrivalTime());
