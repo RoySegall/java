@@ -166,7 +166,7 @@ public class Time1 {
    *  given time.
    */
   public boolean after(Time1 other) {
-    return ((this._hour * 3600) + (this._minute * 60) + this._second) > ((other._hour * 3600) + (other._minute * 60) + other._second);
+    return !this.before(other) && !this.equals(other);
   }
 
   /**

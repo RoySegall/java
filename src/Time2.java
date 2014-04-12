@@ -179,10 +179,7 @@ public class Time2 {
    *  given time.
    */
   public boolean after(Time2 other) {
-    int other_timestamp = (other.getHour() * 3600) + (other.getMinute() * 60) + (other.getSecond());
-    int Time2_timestamp = (this.getHour() * 3600) + (this.getMinute() * 60) + (this.getSecond());
-
-    return Time2_timestamp > other_timestamp;
+    return !this.before(other) && !this.equals(other);
   }
 
   /**
