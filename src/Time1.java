@@ -105,26 +105,9 @@ public class Time1 {
   public String toString() {
     String output;
 
-    if (this._hour < 10) {
-      output = "0" + this._hour + ":";
-    }
-    else {
-      output = "" + this._hour + ":";
-    }
-
-    if (this._minute < 10) {
-      output += 0 + "" + this._minute + ":";
-    }
-    else {
-      output += "" + this._minute + ":";
-    }
-
-    if (this._second < 10) {
-      output += 0 + "" + this._second;
-    }
-    else {
-      output += "" + this._second;
-    }
+    output = this.getHour() < 10 ? "0" + this.getHour() + ":" : this.getHour() + ":";
+    output += this.getMinute() < 10 ? "0" + this.getMinute() + ":" : this.getMinute() + ":";
+    output += this.getSecond() < 10 ? "0" + this.getSecond() + ":" : this.getSecond();
 
     return output;
   }

@@ -13,17 +13,9 @@ public class Time2 {
    *  Holds the seconds of the time.
    */
   public Time2(int h, int m, int s) {
-    if (h < 0 || h > 24) {
-      h = 0;
-    }
-
-    if (m < 0 || m > 59) {
-      m = 0;
-    }
-
-    if (s < 0 || s > 59) {
-      s = 0;
-    }
+    h = h < 0 || h > 24 ? 0 : h;
+    m = m < 0 || m > 59 ? 0 : m;
+    s = s < 0 || s > 59 ? 0 : s;
 
     this._secFromMid = (h * 3600) + (m * 60) + s;
   }
@@ -113,26 +105,9 @@ public class Time2 {
   public String toString() {
     String output;
 
-    if (this.getHour() < 10) {
-      output = "0" + this.getHour() + ":";
-    }
-    else {
-      output = "" + this.getHour() + ":";
-    }
-
-    if (this.getMinute() < 10) {
-      output += 0 + "" + this.getMinute() + ":";
-    }
-    else {
-      output += "" + this.getMinute() + ":";
-    }
-
-    if (this.getSecond() < 10) {
-      output += 0 + "" + this.getSecond();
-    }
-    else {
-      output += "" + this.getSecond();
-    }
+    output = this.getHour() < 10 ? "0" + this.getHour() + ":" : this.getHour() + ":";
+    output += this.getMinute() < 10 ? "0" + this.getMinute() + ":" : this.getMinute() + ":";
+    output += this.getSecond() < 10 ? "0" + this.getSecond() + ":" : this.getSecond();
 
     return output;
   }
@@ -148,7 +123,7 @@ public class Time2 {
    *  instance are equals.
    */
   public boolean equals(Time2 other) {
-    return other.getHour() == this.getHour() && other.getMinute() == this.getMinute() && other.getSecond() == this.getSecond();
+    return other._secFromMid == this._secFromMid;
   }
 
   /**
