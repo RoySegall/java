@@ -1,5 +1,5 @@
 
-public class BusStopTester {
+class BusStopTester {
 
 	/**
 	 * @param args
