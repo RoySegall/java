@@ -87,14 +87,19 @@ public class BusStop {
   public void removeAllLine(int line) {
     // Create a new array which holds all the buses without the specific line.
     BusArrival[] busesWithOutLine = new BusArrival[this._buses.length];
+    int j = 0;
 
     for (int i = 0; i < this._noOfBuses; i++) {
       if (this._buses[i].getLineNum() == line) {
         continue;
       }
 
-      // todo: handle blank holes.
-      busesWithOutLine[i] = this._buses[i];
+      busesWithOutLine[j] = this._buses[i];
+      j++;
+    }
+
+    if (j != 0) {
+      this._buses = busesWithOutLine;
     }
   }
 
