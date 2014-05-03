@@ -3,12 +3,12 @@ public class BusStop {
   /**
    * Holds the all buses arrival information.
    */
-  BusArrival [] _buses;
+  private BusArrival[] _buses;
 
   /**
    * Holds the actual number of buses.
    */
-  int _noOfBuses;
+  private int _noOfBuses;
 
   /**
    * Holds the maximum number of buses.
@@ -19,6 +19,8 @@ public class BusStop {
    * Constructing the class with default values.
    */
   public BusStop() {
+    this._buses = new BusArrival[MAX_BUSES_NUMBER];
+    this._noOfBuses = MAX_BUSES_NUMBER;
   }
 
   /**
@@ -28,41 +30,110 @@ public class BusStop {
    *  The size of buses.
    */
   public BusStop(int size) {
+    this._noOfBuses = size;
+    this._buses = new BusArrival[size];
   }
 
+  /**
+   * Return the array of arrivals.
+   */
   public BusArrival[] getBusses() {
-    BusArrival[] bus;
-    bus = new BusArrival[3];
-    return bus;
+    BusArrival[] buses = new BusArrival[this._noOfBuses];
+
+    for (int i = 0; i < this._noOfBuses; i++) {
+      buses[i] = this._buses[i];
+    }
+
+    return buses;
   }
 
+  /**
+   * Return the number of buses.
+   */
+  public int getNoOfBuses() {
+    int busesNum;
+    busesNum = this._noOfBuses;
+    return busesNum;
+  }
+
+  /**
+   * Adding a bus to the bus arrival array.
+   * @param line
+   *  The line number.
+   * @param pass
+   *  The passengers number.
+   * @param t
+   *  The time object.
+   *
+   * @return Bool
+   *  Return true/false if the adding of the bus succesded.
+   */
   public boolean add(int line, int pass, Time1 t) {
+    if (this._buses.length >= MAX_BUSES_NUMBER) {
+      // Whoops! no place in the arrives array.
+      return false;
+    }
+
+    this._buses[this._buses.length + 1] = new BusArrival(line, pass, t);
     return true;
   }
 
+  /**
+   * Remove any bus arrival of a given line number.
+   *
+   * @param line
+   *  The line number we need to exclude.
+   */
   public void removeAllLine(int line) {
+    // Create a new array which holds all the buses without the specific line.
+    BusArrival[] busesWithOutLine = new BusArrival[this._buses.length];
+
+    for (int i = 0; i < this._noOfBuses; i++) {
+      if (this._buses[i].getLineNum() == line) {
+        continue;
+      }
+
+      // todo: handle blank holes.
+      busesWithOutLine[i] = this._buses[i];
+    }
   }
 
+  /**
+   *
+   * @return
+   */
   public int getPopularLine() {
     return 1;
   }
 
+  /**
+   *
+   * @return
+   */
   public long getAverageTime() {
     return 1;
   }
 
-  public int getNoOfBuses() {
-    return 1;
-  }
-
+  /**
+   *
+   * @return
+   */
   public int totalPassengers() {
     return 1;
   }
 
+  /**
+   *
+   * @return
+   */
   public BusArrival maxPassengers() {
     return new BusArrival(1,2,1,3,4);
   }
 
+  /**
+   *
+   * @return
+   */
   public String toString() {
     return "";
   }
