@@ -99,16 +99,31 @@ public class BusStop {
   }
 
   /**
-   *
-   * @return
+   * Return the popular line number.
    */
   public int getPopularLine() {
-    return 1;
+    if (this._buses.length == 0) {
+      return 0;
+    }
+
+    int[] busesInstancesNumber = new int[100];
+    int popularLine = this._buses[0].getLineNum();
+
+    for (int i = 0; i < this._buses.length; i++) {
+      // Increase the appearance of the line number.
+      busesInstancesNumber[this._buses[i].getLineNum()]++;
+    }
+
+    for (int i = 0; i < busesInstancesNumber.length; i++) {
+      // Find the most popular line.
+      popularLine = busesInstancesNumber[i] > busesInstancesNumber[popularLine] ? i : popularLine;
+    }
+
+    return popularLine;
   }
 
   /**
    *
-   * @return
    */
   public long getAverageTime() {
     return 1;
@@ -135,6 +150,11 @@ public class BusStop {
    * @return
    */
   public String toString() {
-    return "";
+    String string = "";
+
+    for (int i = 0; i < this._buses.length; i++) {
+      string += this._buses[i].toString() + "\n";
+    }
+    return string;
   }
 }
