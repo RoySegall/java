@@ -158,7 +158,14 @@ public class BusStop {
    *  The most populated bus.
    */
   public BusArrival maxPassengers() {
-    return new BusArrival(1,2,1,3,4);
+    BusArrival mostPopulatedBusLine = this._buses[0];
+
+    for (int i = 0; i < this._buses.length; i++) {
+      // Find the most popular line.
+      mostPopulatedBusLine = this._buses[i].getNoOfPass() > mostPopulatedBusLine.getNoOfPass() ? this._buses[i] : mostPopulatedBusLine;
+    }
+
+    return new BusArrival(mostPopulatedBusLine);
   }
 
   /**
