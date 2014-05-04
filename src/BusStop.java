@@ -48,7 +48,7 @@ public class BusStop {
   }
 
   /**
-   * Return the number of buses.
+   * @return the number of buses.
    */
   public int getNoOfBuses() {
     int busesNum;
@@ -66,7 +66,7 @@ public class BusStop {
    *  The time object.
    *
    * @return Bool
-   *  Return true/false if the adding of the bus succesded.
+   *  Return true/false if the adding of the bus succeeded.
    */
   public boolean add(int line, int pass, Time1 t) {
     if (this._buses.length >= MAX_BUSES_NUMBER) {
@@ -75,6 +75,7 @@ public class BusStop {
     }
 
     this._buses[this._buses.length + 1] = new BusArrival(line, pass, t);
+    this._noOfBuses++;
     return true;
   }
 
@@ -94,17 +95,18 @@ public class BusStop {
         continue;
       }
 
-      busesWithOutLine[j] = this._buses[i];
+      busesWithOutLine[j] = new BusArrival(this._buses[i]);
       j++;
     }
 
     if (j != 0) {
       this._buses = busesWithOutLine;
+      this._noOfBuses = j;
     }
   }
 
   /**
-   * Return the popular line number.
+   * @return the popular line number.
    */
   public int getPopularLine() {
     if (this._buses.length == 0) {
@@ -128,31 +130,39 @@ public class BusStop {
   }
 
   /**
-   *
+   * @return the amount of average time need to pass until any bus will arrive
+   * to the station.
    */
   public long getAverageTime() {
     return 1;
   }
 
   /**
-   *
-   * @return
+   * @return the amount of passengers that been in the station during the day.
    */
   public int totalPassengers() {
-    return 1;
+    int passengers = 0;
+
+    for (int i = 0; i < this._buses.length; i++) {
+      passengers += this._buses[i].getNoOfPass();
+    }
+
+    return passengers;
   }
 
   /**
+   * Check which bus is the most populate one between all of the buses which
+   * arrived to the station.
    *
-   * @return
+   * @return BusArrival
+   *  The most populated bus.
    */
   public BusArrival maxPassengers() {
     return new BusArrival(1,2,1,3,4);
   }
 
   /**
-   *
-   * @return
+   * @return A string which represent the current object.
    */
   public String toString() {
     String string = "";
