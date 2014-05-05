@@ -134,7 +134,20 @@ public class BusStop {
    * to the station.
    */
   public long getAverageTime() {
-    return 1;
+    // Get the first bus as a minimum and maximum.
+    BusArrival min = this._buses[0];
+    BusArrival max = this._buses[0];
+
+    // Starting from the second array since checking if the first array after or
+    // before it self is redundant.
+    for (int i = 1; i < this._buses.length; i++) {
+      min = this._buses[i].before(min) ? this._buses[i] : min;
+      max = !this._buses[i].before(max) ? this._buses[i] : max;
+    }
+
+    long diff = max.getArrivalTime().difference(min.getArrivalTime());
+
+    return diff / (this._buses.length - 1);
   }
 
   /**
