@@ -20,7 +20,7 @@ public class BusStop {
    */
   public BusStop() {
     this._buses = new BusArrival[MAX_BUSES_NUMBER];
-    this._noOfBuses = MAX_BUSES_NUMBER;
+    this._noOfBuses = 0;
   }
 
   /**
@@ -37,7 +37,7 @@ public class BusStop {
   /**
    * Return the array of arrivals.
    */
-  public BusArrival[] getBusses() {
+  public BusArrival[] getBuses() {
     BusArrival[] buses = new BusArrival[this._noOfBuses];
 
     for (int i = 0; i < this._noOfBuses; i++) {
@@ -69,12 +69,12 @@ public class BusStop {
    *  Return true/false if the adding of the bus succeeded.
    */
   public boolean add(int line, int pass, Time1 t) {
-    if (this._buses.length >= MAX_BUSES_NUMBER) {
+    if (this._noOfBuses >= MAX_BUSES_NUMBER) {
       // Whoops! no place in the arrives array.
       return false;
     }
 
-    this._buses[this._buses.length + 1] = new BusArrival(line, pass, t);
+    this._buses[this._noOfBuses] = new BusArrival(line, pass, t);
     this._noOfBuses++;
     return true;
   }
@@ -116,7 +116,7 @@ public class BusStop {
     int[] busesInstancesNumber = new int[100];
     int popularLine = this._buses[0].getLineNum();
 
-    for (int i = 0; i < this._buses.length; i++) {
+    for (int i = 0; i < this._noOfBuses; i++) {
       // Increase the appearance of the line number.
       busesInstancesNumber[this._buses[i].getLineNum()]++;
     }
@@ -140,14 +140,14 @@ public class BusStop {
 
     // Starting from the second array since checking if the first array after or
     // before it self is redundant.
-    for (int i = 1; i < this._buses.length; i++) {
+    for (int i = 1; i < this._noOfBuses; i++) {
       min = this._buses[i].before(min) ? this._buses[i] : min;
       max = !this._buses[i].before(max) ? this._buses[i] : max;
     }
 
-    long diff = max.getArrivalTime().difference(min.getArrivalTime());
+    long diff = min.getArrivalTime().difference(max.getArrivalTime());
 
-    return diff / (this._buses.length - 1);
+    return diff / (this._noOfBuses - 1);
   }
 
   /**
@@ -156,7 +156,7 @@ public class BusStop {
   public int totalPassengers() {
     int passengers = 0;
 
-    for (int i = 0; i < this._buses.length; i++) {
+    for (int i = 0; i < this._noOfBuses; i++) {
       passengers += this._buses[i].getNoOfPass();
     }
 
@@ -173,7 +173,7 @@ public class BusStop {
   public BusArrival maxPassengers() {
     BusArrival mostPopulatedBusLine = this._buses[0];
 
-    for (int i = 0; i < this._buses.length; i++) {
+    for (int i = 0; i < this._noOfBuses; i++) {
       // Find the most popular line.
       mostPopulatedBusLine = this._buses[i].getNoOfPass() > mostPopulatedBusLine.getNoOfPass() ? this._buses[i] : mostPopulatedBusLine;
     }
@@ -187,7 +187,7 @@ public class BusStop {
   public String toString() {
     String string = "";
 
-    for (int i = 0; i < this._buses.length; i++) {
+    for (int i = 0; i < this._noOfBuses; i++) {
       string += this._buses[i] + "\n";
     }
     return string;

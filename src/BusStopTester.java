@@ -13,6 +13,7 @@ public class BusStopTester {
     System.out.println(firstBusArrival);
     System.out.println(secondBusArrival);
 
+
     System.out.println("The line number of the first BusArrival object is: " + firstBusArrival.getLineNum());
     System.out.println("The number of passengers of the first BusArrival object is: " + firstBusArrival.getNoOfPass());
     System.out.println("The arrival time of the first BusArrival object is: " + firstBusArrival.getArrivalTime());
