@@ -5,12 +5,11 @@ public class BusStopTester {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
     BusArrival firstBusArrival = new BusArrival(20, 55, 10, 30, 0);
     Time1 time1 = new Time1(9, 30, 0);
 
     BusArrival secondBusArrival = new BusArrival(18, 30, time1);
-        
+
     System.out.println(firstBusArrival);
     System.out.println(secondBusArrival);
 
