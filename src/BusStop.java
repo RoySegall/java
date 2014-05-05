@@ -188,7 +188,7 @@ public class BusStop {
     String string = "";
 
     for (int i = 0; i < this._buses.length; i++) {
-      string += this._buses[i].toString() + "\n";
+      string += this._buses[i] + "\n";
     }
     return string;
   }
