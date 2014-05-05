@@ -30,7 +30,6 @@ public class BusStop {
    *  The size of buses.
    */
   public BusStop(int size) {
-    this._noOfBuses = size;
     this._buses = new BusArrival[size];
   }
 
@@ -58,6 +57,7 @@ public class BusStop {
 
   /**
    * Adding a bus to the bus arrival array.
+   *
    * @param line
    *  The line number.
    * @param pass
@@ -69,7 +69,7 @@ public class BusStop {
    *  Return true/false if the adding of the bus succeeded.
    */
   public boolean add(int line, int pass, Time1 t) {
-    if (this._noOfBuses >= MAX_BUSES_NUMBER) {
+    if (this._noOfBuses >= this._buses.length) {
       // Whoops! no place in the arrives array.
       return false;
     }
