@@ -75,11 +75,12 @@ public class MamanTester {
     System.out.print(bus);
 
     // Create a popular line and check he is the popular one.
-    if (busForLater.getPopularLine() == 61) {
+    int pop = busForLater.getPopularLine();
+    if (pop == 61) {
       System.out.println("The popular line is 61. Congrats.");
     }
     else {
-      System.out.println("The popular line is not 61. Check your self.");
+      System.out.println("The popular line is not 61 but " + pop + ". Check your self.");
     }
 
     // Create a new bus object.
@@ -92,15 +93,35 @@ public class MamanTester {
 
     // Check the average time by the example from the manan.
     bus = new BusStop(4);
-    bus.add(20, 20, time[0]);
-    bus.add(20, 20, time[1]);
-    bus.add(20, 20, time[2]);
-    bus.add(20, 20, time[3]);
+    bus.add(40, 30, time[0]);
+    bus.add(30, 40, time[1]);
+    bus.add(61, 50, time[2]);
+    bus.add(62, 60, time[3]);
 
-    System.out.println("Av" + bus.getAverageTime());
+    long average = bus.getAverageTime();
+    if (average == 1200) {
+      System.out.println("The average time is 1200. Congrats");
+    }
+    else {
+      System.out.println("The time is not 1200 but " + average + ". Please check your maman.");
+    }
 
     // Check the total passengers.
+    int total = bus.totalPassengers();
+    if (total == 180) {
+      System.out.println("There are 180 passengers in the station. Congrats");
+    }
+    else {
+      System.out.println("The total passengers is not 180 but " + total + ". Please check your maman.");
+    }
 
     // Check the max passengers.
+    int line = bus.maxPassengers().getLineNum();
+    if (line == 62) {
+      System.out.println("The bus with the max passengers is 62. Congrats.");
+    }
+    else {
+      System.out.println("The bus with the max passengers is not 62 but " + line + ". Check your maman.");
+    }
   }
 }

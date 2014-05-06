@@ -140,9 +140,9 @@ public class BusStop {
 
     // Starting from the second array since checking if the first array after or
     // before it self is redundant.
-    for (int i = 1; i < this._noOfBuses; i++) {
-      min = this._buses[i].before(min) ? this._buses[i] : min;
-      max = !this._buses[i].before(max) ? this._buses[i] : max;
+    for (int i = 0; i < this._noOfBuses; i++) {
+      min = this._buses[i].before(min) ? min : this._buses[i];
+      max = !this._buses[i].before(max) ? max : this._buses[i];
     }
 
     long diff = min.getArrivalTime().difference(max.getArrivalTime());
