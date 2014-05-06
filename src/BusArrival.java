@@ -177,7 +177,7 @@ public class BusArrival {
    *  Return true/false if the current bus arrived before the given bus.
    */
   public boolean before(BusArrival other) {
-    return other._arrivalTime.before(other.getArrivalTime());
+    return this._arrivalTime.before(other.getArrivalTime());
   }
 
   /**
