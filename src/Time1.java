@@ -107,7 +107,7 @@ public class Time1 {
 
     output = this.getHour() < 10 ? "0" + this.getHour() + ":" : this.getHour() + ":";
     output += this.getMinute() < 10 ? "0" + this.getMinute() + ":" : this.getMinute() + ":";
-    output += this.getSecond() < 10 ? "0" + this.getSecond() + ":" : this.getSecond();
+    output += this.getSecond() < 10 ? "0" + this.getSecond() : this.getSecond();
 
     return output;
   }
