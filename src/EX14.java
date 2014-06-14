@@ -1,3 +1,9 @@
+/**
+ * Roy Segall 200838068
+ *
+ * I can't see hebrew notes because i have mac. Can you please write the notes
+ * in english? Thank you.
+ */
 public class EX14 {
 
   /**
