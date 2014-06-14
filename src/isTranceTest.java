@@ -24,14 +24,38 @@ public class isTranceTest {
 
     letters[0][1] = 2;
     letters[0][0] = 'a';
+    letters[1][1] = 2;
+    letters[1][0] = 'a';
+    letters[2][1] = 2;
+    letters[2][0] = 'a';
+    letters[3][1] = 2;
+    letters[3][0] = 'a';
 
-    for (int i = 0; i < t.length(); i++) {
-    }
+    int i = 0;
+    int j = 0;
+
+    checkOccurrences(letters, s, i, j);
 
     return false;
   }
 
-  public static void checkOccurrences(Object[][] letters, String string) {
+  public static void checkOccurrences(Object[][] letters, String string, int i, int j) {
+    if (i >= string.length()) {
+      return;
+    }
+
+    if (j > 0 && string.charAt(i) == letters[j - 1][1]) {
+      System.out.println("a");
+//      int foo = (int)letters[j-1][0];
+      letters[j-1][0] = (int)  + 1;
+      letters[j-1][1] = string.charAt(i);
+    }
+
+    letters[j][0] = i;
+    letters[j][1] = string.charAt(i);
+
+    j++;
+    checkOccurrences(letters, string, i + 1, j);
 
   }
 

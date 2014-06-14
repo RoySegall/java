@@ -31,40 +31,14 @@ public class matchTest {
 
     if (a.length > 3) {
       // The a array is more then 3. Verify the sub arrays in batches.
-      int j = 0;
       int localMatch[] = new int[3];
-      for (int i = 0; i < a.length; i++) {
-        j++;
-        localMatch[j % 3 == 0 ? 2 : (j % 3) - 1] = a[i];
-
-        if (j % 3 == 0) {
-          // When we found a wrong pattern we return false. Until then
-          // everything is OK.
-          if (!match(localMatch, pattern)) {
-            return false;
-          }
-        }
-      }
+      iterateMatches(0, 0, a, pattern, localMatch);
     }
 
     if (a.length == 3) {
       boolean[] digits = new boolean[3];
 
-      for (int i = 0; i <= 2; i++) {
-        switch (pattern[i]) {
-          case 1:
-            digits[i] = oneDigit(a[i]);
-            break;
-
-          case 2:
-            digits[i] = twoDigit(a[i]);
-            break;
-
-          default:
-            digits[i] = oneDigit(a[i]) || twoDigit(a[i]);
-            break;
-        }
-      }
+      verifyDigits(digits, pattern, a, 0);
 
       // Check the array is in the right pattern.
       return digits[0] && digits[1] && digits[2];
@@ -72,6 +46,69 @@ public class matchTest {
 
     // If nothing went wrong until here then the pattern is OK.
     return true;
+  }
+
+  /**
+   * Since we can't iterate with loops we will iterate with a helper function.
+   * @param i
+   *  Iterate indicator.
+   * @param j
+   *  Help is build the match array.
+   * @param a
+   *  The original array.
+   * @param pattern
+   *  The pattern for authentication
+   * @param localMatch
+   *  Building a local variable that will pass to the original match function.
+   * @return
+   *  True or false for the pattern the a array.
+   */
+  public static boolean iterateMatches(int i, int j, int[] a, int[] pattern, int[] localMatch) {
+    localMatch[j % 3 == 0 ? 2 : (j % 3) - 1] = a[i];
+    if (j % 3 == 0) {
+      // When we found a wrong pattern we return false. Until then
+      // everything is OK.
+      return !match(localMatch, pattern);
+    }
+    i++;
+    j++;
+    return iterateMatches(i, j, a, pattern, localMatch);
+  }
+
+  /**
+   * Since we can't iterate we will use a helper function for iterate over the
+   * digits and pattern arrays and build a boolean array that holds the boolean
+   * information about the pattern authentication status.
+   *
+   * @param digits
+   *  The digits array.
+   * @param pattern
+   *  The pattern for authentication.
+   * @param a
+   *  The original array.
+   * @param i
+   *  Iterate indicator.
+   */
+  public static void verifyDigits(boolean[] digits, int[] pattern, int[] a, int i) {
+    if (i > 2) {
+      return;
+    }
+
+    switch (pattern[i]) {
+      case 1:
+        digits[i] = oneDigit(a[i]);
+        break;
+
+      case 2:
+        digits[i] = twoDigit(a[i]);
+        break;
+
+      default:
+        digits[i] = oneDigit(a[i]) || twoDigit(a[i]);
+        break;
+    }
+    i++;
+    verifyDigits(digits, pattern, a, i);
   }
 
   /**
