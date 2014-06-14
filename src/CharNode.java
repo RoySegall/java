@@ -7,7 +7,7 @@ public class CharNode {
   public CharNode(char c, int val, CharNode n) {
     this._data = c;
     this._value = val;
-    this. _next = n;
+    this._next = n;
   }
 
   public CharNode getNext() {

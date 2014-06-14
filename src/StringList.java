@@ -1,5 +1,4 @@
-public class StringList
-{
+public class StringList {
   private CharNode _head;
 
   public StringList( ) {
@@ -13,8 +12,7 @@ public class StringList
     else {
       this._head = new CharNode(node.getData(), node.getValue(), null);
       for (CharNode ptr = node.getNext(),last = this._head; ptr != null; ptr = ptr.getNext()) {
-        last.setNext(new CharNode(ptr.getData(),ptr.getValue(),
-        ptr.getNext()));
+        last.setNext(new CharNode(ptr.getData(), ptr.getValue(), ptr.getNext()));
         last = last.getNext();
       }
     }
@@ -30,7 +28,19 @@ public class StringList
    * @param s
    *  The given string.
    */
-  public StringList (String s) {
+  public StringList(String s) {
+    this._head = new CharNode(s.charAt(0), 0, null);
+
+    CharNode handler = this._head;
+
+    for (int i = 1; i < s.length(); i++) {
+      CharNode temp = new CharNode(s.charAt(i), 0, null);
+      while (handler.getNext() != null) {
+        handler = handler.getNext();
+      }
+
+      handler.setNext(temp);
+    }
   }
 
   /**
@@ -39,7 +49,7 @@ public class StringList
    * @param other
    *  The linked list.
    */
-  public StringList (StringList other) {
+  public StringList(StringList other) {
   }
 
   /**
@@ -60,7 +70,7 @@ public class StringList
    * @param str
    * @return
    */
-  public StringList concat (StringList str) {
+  public StringList concat(StringList str) {
     return this;
   }
 
@@ -74,7 +84,7 @@ public class StringList
    * @return
    *  The position we looking for.
    */
-  public int indexOf (char ch) {
+  public int indexOf(char ch) {
     return -1;
   }
 
