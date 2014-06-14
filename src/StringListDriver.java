@@ -6,6 +6,7 @@
 public class StringListDriver {
   public static void main(String[] args) {
     StringList s = new StringList("Roy Segall");
+    StringList f = new StringList(s);
   }
 
   public static void _main(String[] args) {

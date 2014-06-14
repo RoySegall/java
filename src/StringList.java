@@ -1,10 +1,18 @@
 public class StringList {
   private CharNode _head;
 
+  /**
+   * Empty constructor.
+   */
   public StringList( ) {
     this._head = null;
   }
 
+  /**
+   * Constructing the object when a single CharNode object is provided.
+   * @param node
+   *  A CharNode object represent a single character.
+   */
   public StringList(CharNode node) {
     if (node == null) {
       this._head = null;
@@ -17,10 +25,6 @@ public class StringList {
       }
     }
   }
-
-  /**
-   * Todo!
-   */
 
   /**
    * Constructing a linked list from the given string.
@@ -42,6 +46,10 @@ public class StringList {
       handler.setNext(temp);
     }
   }
+
+  /**
+   * Todo!
+   */
 
   /**
    * Constructing a linked list from linked list object.
