@@ -36,7 +36,7 @@ public class StringListDriver {
 
         System.out.println("compare s To s1=> equal (0), s<s1 (<0), s>s1 (>0) is: " + s.compareTo(s1));
 
-        System.out.println("sub string s form place 2 to the end of the string is: " + s.substring(2));
+        System.out.println("sub string s form place 2 to the end of the string is: " + s.substring(2, 6));
 
         System.out.println("sub string s from place 1 to place 3 is: " + s.substring(1,3));
 

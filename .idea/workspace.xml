@@ -182,7 +182,7 @@
         <entry file="file://$PROJECT_DIR$/src/StringList.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="1130" max-vertical-offset="2385">
-              <caret line="147" column="37" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="37" />
+              <caret line="133" column="20" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
               <folding>
                 <element signature="e#76#77#0" expanded="true" />
                 <element signature="e#103#104#0" expanded="true" />
@@ -209,21 +209,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Object.class" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Object.class" pinned="false" current="false" current-in-tab="false">
         <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/lang/Object.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21513945" vertical-offset="0" max-vertical-offset="1255">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
               <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StringListDriver.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="StringListDriver.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/StringListDriver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.307692" vertical-offset="0" max-vertical-offset="765">
-              <caret line="30" column="65" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.4637917" vertical-offset="0" max-vertical-offset="1229">
+              <caret line="38" column="103" selection-start-line="38" selection-start-column="103" selection-end-line="38" selection-end-column="103" />
               <folding />
             </state>
           </provider>
@@ -250,6 +250,7 @@
         <option value="$PROJECT_DIR$/src/EX14.java" />
         <option value="$PROJECT_DIR$/src/CharNode.java" />
         <option value="$PROJECT_DIR$/src/StringList.java" />
+        <option value="$PROJECT_DIR$/src/StringListDriver.java" />
       </list>
     </option>
   </component>
@@ -679,10 +680,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StringListDriver.java">
+    <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/lang/Object.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.307692" vertical-offset="0" max-vertical-offset="765">
-          <caret line="30" column="65" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -690,7 +691,7 @@
     <entry file="file://$PROJECT_DIR$/src/StringList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1130" max-vertical-offset="2385">
-          <caret line="147" column="37" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="37" />
+          <caret line="133" column="20" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
           <folding>
             <element signature="e#76#77#0" expanded="true" />
             <element signature="e#103#104#0" expanded="true" />
@@ -716,10 +717,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/lang/Object.class">
+    <entry file="file://$PROJECT_DIR$/src/StringListDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21513945" vertical-offset="0" max-vertical-offset="1255">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.4637917" vertical-offset="0" max-vertical-offset="1229">
+          <caret line="38" column="103" selection-start-line="38" selection-start-column="103" selection-end-line="38" selection-end-column="103" />
           <folding />
         </state>
       </provider>
