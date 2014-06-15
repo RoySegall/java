@@ -36,15 +36,43 @@ public class StringList {
     this._head = new CharNode(s.charAt(0), 0, null);
 
     CharNode handler = this._head;
-
+    int inRow = 0;
     for (int i = 1; i < s.length(); i++) {
-      CharNode temp = new CharNode(s.charAt(i), 0, null);
+      if (s.charAt(i - 1) == s.charAt(i)) {
+        inRow++;
+      }
+      else {
+        inRow = 0;
+      }
+      CharNode temp = new CharNode(s.charAt(i), inRow == 0 ? 0 : inRow + 1, null);
       while (handler.getNext() != null) {
         handler = handler.getNext();
       }
 
       handler.setNext(temp);
     }
+  }
+
+  /**
+   * Returning a char at a given position.
+   *
+   * @param i
+   *  The i position.
+   *
+   * @return
+   *  A char in the i position.
+   */
+  public char charAt(int i) {
+    int j = 0;
+    CharNode handler = this._head;
+    while (handler.getNext() != null) {
+      handler = handler.getNext();
+      j++;
+      if (j == i) {
+        return handler.getData();
+      }
+    }
+    return ' ' ;
   }
 
   /**
@@ -58,19 +86,6 @@ public class StringList {
    *  The linked list.
    */
   public StringList(StringList other) {
-  }
-
-  /**
-   * Returning a char at a given position.
-   *
-   * @param i
-   *  The i position.
-   *
-   * @return
-   *  A char in the i position.
-   */
-  public char charAt(int i) {
-    return 'a';
   }
 
   /**
