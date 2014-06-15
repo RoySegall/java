@@ -64,15 +64,21 @@ public class StringList {
    */
   public char charAt(int i) {
     int j = 0;
+    char ret = ' ';
     CharNode handler = this._head;
+
+    if (i == 0) {
+      return handler.getData();
+    }
+
     while (handler.getNext() != null) {
       handler = handler.getNext();
-      j++;
       if (j == i) {
         return handler.getData();
       }
+      j++;
     }
-    return ' ' ;
+    return ret;
   }
 
   /**
