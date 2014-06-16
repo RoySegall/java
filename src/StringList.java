@@ -118,6 +118,75 @@ public class StringList {
 
 
   /**
+   * @return
+   *  The current object as a string.
+   */
+  public String toString() {
+    String string;
+    CharNode handler = this._head;
+    string = "" + handler.getData();
+
+    while (handler.getNext() != null) {
+      handler = handler.getNext();
+      string += "" + handler.getData();
+    }
+
+    return string;
+  }
+
+  /**
+   * @return
+   *  The length of the string.
+   */
+  public int length() {
+    CharNode handler;
+    int i = 1;
+    handler = this._head;
+
+    while (handler.getNext() != null) {
+      i++;
+      handler = handler.getNext();
+    }
+
+    return i;
+  }
+
+  /**
+   * Return true if the current string represented by the current instance
+   * equals to string represented by the given object.
+   *
+   * @param str
+   *  A StringList object.
+   *
+   * @return
+   *  Return true if string are equals.
+   */
+  public boolean equalsTo(StringList str) {
+    return this._equalsTo(this._head, str._head);
+  }
+
+  /**
+   * Since we need to use recursion in order to compare between the string this
+   * function will help us.
+   */
+  private boolean _equalsTo(CharNode currentInstance, CharNode comparedInstance) {
+    if (currentInstance.getData() == comparedInstance.getData()) {
+
+      if ((currentInstance.getNext() == null && comparedInstance.getNext() != null) || currentInstance.getNext() != null && comparedInstance.getNext() == null) {
+        // We have a next data in the current instance and not in the compared
+        // instance or the opposite. return false.
+        return false;
+      }
+
+      // The current data are equals checking with the next nodes.
+      return this._equalsTo(currentInstance.getNext(), comparedInstance.getNext());
+    }
+
+    // The data are not equals - return false.
+    return false;
+  }
+
+  /**
    * Todo!
    */
 
@@ -166,20 +235,6 @@ public class StringList {
   }
 
   /**
-   * Return true if the current string represented by the current instance
-   * equals to string represented by the given object.
-   *
-   * @param str
-   *  A StringList object.
-   *
-   * @return
-   *  Return true if string are equals.
-   */
-  public boolean equalsTo(StringList str) {
-    return false;
-  }
-
-  /**
    * Comparing between a given string and the current string.
    *
    * @param str
@@ -205,21 +260,4 @@ public class StringList {
   public StringList substring(int i, int j) {
     return this;
   }
-
-  /**
-   * @return
-   *  The length of the string.
-   */
-  public int length() {
-    return 0;
-  }
-
-  /**
-   * @return
-   *  The current object as a string.
-   */
-  public String toString() {
-    return "a";
-  }
-
 }
