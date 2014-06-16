@@ -54,6 +54,34 @@ public class StringList {
   }
 
   /**
+   * Constructing a linked list from linked list object.
+   *
+   * @param other
+   *  The linked list.
+   */
+  public StringList(StringList other) {
+    String s = other.toString();
+    this._head = new CharNode(s.charAt(0), 0, null);
+
+    CharNode handler = this._head;
+    int inRow = 0;
+    for (int i = 1; i < s.length(); i++) {
+      if (s.charAt(i - 1) == s.charAt(i)) {
+        inRow++;
+      }
+      else {
+        inRow = 0;
+      }
+      CharNode temp = new CharNode(s.charAt(i), inRow == 0 ? 0 : inRow + 1, null);
+      while (handler.getNext() != null) {
+        handler = handler.getNext();
+      }
+
+      handler.setNext(temp);
+    }
+  }
+
+  /**
    * Returning a char at a given position.
    *
    * @param i
@@ -189,15 +217,6 @@ public class StringList {
   /**
    * Todo!
    */
-
-  /**
-   * Constructing a linked list from linked list object.
-   *
-   * @param other
-   *  The linked list.
-   */
-  public StringList(StringList other) {
-  }
 
   /**
    *

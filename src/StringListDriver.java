@@ -6,7 +6,7 @@
 public class StringListDriver {
   public static void main(String[] args) {
     StringList s = new StringList("Roy Segall");
-    StringList t = new StringList("Roy Segall ssd");
+    StringList t = new StringList(s);
 
     System.out.print(s.equalsTo(t));
   }
