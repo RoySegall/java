@@ -215,6 +215,47 @@ public class StringList {
   }
 
   /**
+   * Comparing between a given string and the current string.
+   *
+   * @param str
+   *  The string.
+   *
+   * @return
+   *  0 if the strings are equal.
+   *  Negative number if the current string smaller in alphabetic order.
+   *  Positive number if the current string bigger in alphabetic order.
+   */
+  public int compareTo(StringList str) {
+    String currentString, comparedSting;
+
+    // Get the compared object to strings. Would be much more easier.
+    currentString = this.toString();
+    comparedSting = str.toString();
+
+    if (currentString.equals(comparedSting)) {
+      // The string are equals. Return 0.
+      return 0;
+    }
+
+    if (currentString.length() == comparedSting.length()) {
+      // The strings are equals by length iterate over them and check
+      // alphabetical order.
+      for (int i = 0; i < currentString.length(); i++) {
+
+        if (currentString.charAt(i) == comparedSting.charAt(i)) {
+          continue;
+        }
+
+        return currentString.charAt(i) > comparedSting.charAt(i) ? 1 : -1;
+      }
+    }
+
+    // The current string is bigger then the given string. Return positive
+    // number.
+    return currentString.length() > comparedSting.length() ? 1 : -1;
+  }
+
+  /**
    * Todo!
    */
 
@@ -238,7 +279,7 @@ public class StringList {
   }
 
   /**
-   * Return the position of the charecter in the string the current instance
+   * Return the position of the character in the string the current instance
    * represent when the search start from the index fromIndex.
    *
    * @param ch
@@ -251,20 +292,6 @@ public class StringList {
    */
   public int indexOf(char ch, int fromIndex) {
     return -1;
-  }
-
-  /**
-   * Comparing between a given string and the current string.
-   *
-   * @param str
-   *  The string.
-   * @return
-   *  0 if the strings are equal.
-   *  Negative number if the current string smaller in alphabetic order.
-   *  Positive number if the current string bigger in alphabetic order.
-   */
-  public int compareTo(StringList str) {
-    return 0;
   }
 
   /**

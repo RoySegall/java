@@ -5,10 +5,10 @@
  */
 public class StringListDriver {
   public static void main(String[] args) {
-    StringList s = new StringList("Roy Segall");
-    StringList t = new StringList(s);
+    StringList s = new StringList("abcde");
+    StringList t = new StringList("abcae");
 
-    System.out.print(s.equalsTo(t));
+    System.out.print(s.compareTo(t));
   }
 
   public static void _main(String[] args) {
