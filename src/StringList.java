@@ -73,13 +73,49 @@ public class StringList {
 
     while (handler.getNext() != null) {
       handler = handler.getNext();
+
       if (j == i) {
         return handler.getData();
       }
+
       j++;
     }
+
     return ret;
   }
+
+
+  /**
+   * Return the index of the ch in the string represented by the current
+   * instance.
+   *
+   * @param ch
+   *  The char we are looking for.
+   *
+   * @return
+   *  The position we looking for.
+   */
+  public int indexOf(char ch) {
+    CharNode handler = this._head;
+    int j = 0;
+
+    if (this._head.getData() == ch) {
+      return 0;
+    }
+
+    while (handler.getNext() != null) {
+
+      if (handler.getData() == ch) {
+        return j;
+      }
+
+      j++;
+      handler = handler.getNext();
+    }
+
+    return -1;
+  }
+
 
   /**
    * Todo!
@@ -100,21 +136,17 @@ public class StringList {
    * @return
    */
   public StringList concat(StringList str) {
-    return this;
-  }
+    StringList string;
 
-  /**
-   * Return the index of the ch in the string represented by the current
-   * instance.
-   *
-   * @param ch
-   *  The char we are looking for.
-   *
-   * @return
-   *  The position we looking for.
-   */
-  public int indexOf(char ch) {
-    return -1;
+    string = new StringList(this._head);
+    CharNode temp = this._head;
+    while (temp.getNext() != null) {
+      System.out.println(temp.getData());
+      temp = temp.getNext();
+    }
+//    this._head.setNext(str._head);
+
+    return this;
   }
 
   /**
