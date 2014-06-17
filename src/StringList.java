@@ -144,6 +144,41 @@ public class StringList {
     return -1;
   }
 
+  /**
+   * Return the position of the character in the string the current instance
+   * represent when the search start from the index fromIndex.
+   *
+   * @param ch
+   *  The char we are looking for.
+   * @param fromIndex
+   *  The index we need to start from.
+   *
+   * @return
+   *  The position we looking for.
+   */
+  public int indexOf(char ch, int fromIndex) {
+    String string = this.toString();
+
+    if (fromIndex > string.length()) {
+      // Not in the range. Return -1;
+      return -1;
+    }
+
+    for (int i = 0; i < string.length(); i++) {
+
+      if (i <= fromIndex) {
+        // We still not in the index we need to start from. Continue for now.
+        continue;
+      }
+
+      if (ch == string.charAt(i)) {
+        // Return the index that the char belong to.
+        return i;
+      }
+    }
+
+    return -1;
+  }
 
   /**
    * @return
@@ -276,22 +311,6 @@ public class StringList {
 //    this._head.setNext(str._head);
 
     return this;
-  }
-
-  /**
-   * Return the position of the character in the string the current instance
-   * represent when the search start from the index fromIndex.
-   *
-   * @param ch
-   *  The char we are looking for.
-   * @param fromIndex
-   *  The index we need to start from.
-   *
-   * @return
-   *  The position we looking for.
-   */
-  public int indexOf(char ch, int fromIndex) {
-    return -1;
   }
 
   /**

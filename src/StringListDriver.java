@@ -5,10 +5,10 @@
  */
 public class StringListDriver {
   public static void main(String[] args) {
-    StringList s = new StringList("abcde");
-    StringList t = new StringList("abcae");
+    StringList s = new StringList("abcd abcd");
 
-    System.out.print(s.compareTo(t));
+    System.out.println(s.indexOf('d'));
+    System.out.println(s.indexOf('d', 3));
   }
 
   public static void _main(String[] args) {
