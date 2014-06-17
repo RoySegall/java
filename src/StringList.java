@@ -4,7 +4,7 @@ public class StringList {
   /**
    * Empty constructor.
    */
-  public StringList( ) {
+  public StringList() {
     this._head = null;
   }
 
@@ -291,27 +291,32 @@ public class StringList {
   }
 
   /**
-   * Todo!
-   */
-
-  /**
+   * Concatenating to StringList objects into a single StringList object.
    *
    * @param str
+   *  The we need to contact with the string from the current object.
+   *
    * @return
+   *  A StringList object with to StringList objects.
    */
   public StringList concat(StringList str) {
-    StringList string;
+    String currentString = this.toString();
+    String externalString = str.toString();
 
-    string = new StringList(this._head);
+    String string = currentString + "" + externalString;
+    StringList returnedStringList = new StringList(string);
+
     CharNode temp = this._head;
     while (temp.getNext() != null) {
-      System.out.println(temp.getData());
       temp = temp.getNext();
     }
-//    this._head.setNext(str._head);
 
-    return this;
+    return returnedStringList;
   }
+
+  /**
+   * Todo!
+   */
 
   /**
    * Return a substring.

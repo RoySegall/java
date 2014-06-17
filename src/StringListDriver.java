@@ -5,10 +5,10 @@
  */
 public class StringListDriver {
   public static void main(String[] args) {
-    StringList s = new StringList("abcd abcd");
+    StringList r = new StringList("");
+    StringList j = new StringList("John Doe");
 
-    System.out.println(s.indexOf('d'));
-    System.out.println(s.indexOf('d', 3));
+    System.out.println(r.concat(j));
   }
 
   public static void _main(String[] args) {
