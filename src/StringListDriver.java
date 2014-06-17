@@ -5,10 +5,10 @@
  */
 public class StringListDriver {
   public static void main(String[] args) {
-    StringList r = new StringList("");
+    StringList r = new StringList("Roy Segall");
     StringList j = new StringList("John Doe");
 
-    System.out.println(r.concat(j));
+    System.out.println(r.substring(4, 7));
   }
 
   public static void _main(String[] args) {

@@ -315,10 +315,6 @@ public class StringList {
   }
 
   /**
-   * Todo!
-   */
-
-  /**
    * Return a substring.
    * @param i
    *  The start position.
@@ -328,6 +324,20 @@ public class StringList {
    *  String extracted from the current string.
    */
   public StringList substring(int i, int j) {
-    return this;
+    int k = 0;
+    CharNode handler = this._head;
+    String string = "";
+
+    while (handler.getNext() != null) {
+
+      if (k >= i && k <= j) {
+        string += handler.getData();
+      }
+
+      handler = handler.getNext();
+      k++;
+    }
+
+    return new StringList(string);
   }
 }
