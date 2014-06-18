@@ -33,7 +33,13 @@ public class StringList {
    *  The given string.
    */
   public StringList(String s) {
-    this._head = new CharNode(s.charAt(0), 0, null);
+    if (s == "") {
+      this._head = null;
+    }
+    else {
+      this._head = new CharNode(s.charAt(0), 0, null);
+    }
+
 
     CharNode handler = this._head;
     int inRow = 0;
@@ -91,8 +97,14 @@ public class StringList {
    *  A char in the i position.
    */
   public char charAt(int i) {
+    char ret = '\0';
+
+    if (this._head == null) {
+      return ret;
+    }
+
     int j = 0;
-    char ret = ' ';
+
     CharNode handler = this._head;
 
     if (i == 0) {
@@ -124,7 +136,12 @@ public class StringList {
    *  The position we looking for.
    */
   public int indexOf(char ch) {
+    if (this._head == null) {
+      return 0;
+    }
+
     CharNode handler = this._head;
+
     int j = 0;
 
     if (this._head.getData() == ch) {
@@ -185,6 +202,10 @@ public class StringList {
    *  The current object as a string.
    */
   public String toString() {
+    if (this._head == null) {
+      return "";
+    }
+
     String string;
     CharNode handler = this._head;
     string = "" + handler.getData();
@@ -202,6 +223,10 @@ public class StringList {
    *  The length of the string.
    */
   public int length() {
+    if (this._head == null) {
+      return 0;
+    }
+
     CharNode handler;
     int i = 1;
     handler = this._head;
@@ -324,6 +349,10 @@ public class StringList {
    *  String extracted from the current string.
    */
   public StringList substring(int i, int j) {
+    if (this._head == null) {
+      return null;
+    }
+    
     int k = 0;
     CharNode handler = this._head;
     String string = "";
