@@ -1,3 +1,8 @@
+/**
+ * Please send me the feedback in english. I have mac and can't see the hebrew
+ * text.
+ */
+
 public class StringList {
   private CharNode _head;
 
